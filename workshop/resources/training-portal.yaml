@@ -1,0 +1,20 @@
+apiVersion: learningcenter.tanzu.vmware.com/v1beta1
+kind: TrainingPortal
+metadata:
+  name: workshops
+spec:
+  portal:
+    title: Workshops for the TM Forum use-case
+    ingress:
+        hostname: workshops
+    registration:
+        type: anonymous
+    updates:
+      workshop: true
+    sessions:
+      maximum: 2
+    reserved: 1
+  workshops:
+    - name: tm-forum-demo
+      expires: 90m
+      orphaned: 90m

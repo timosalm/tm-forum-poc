@@ -1,0 +1,25 @@
+name: Markdown Sample
+modules:
+  activate:
+    - workshop-overview
+    - exercises/use-case
+    - exercises/learning-center
+    - exercises/app-accelerator
+    - exercises/git
+    - exercises/tekton
+    - exercises/workload
+    - exercises/sc-concept
+    - exercises/sc-testing
+    - exercises/sc-container-building
+    - exercises/sc-security
+    - exercises/sc-api-conformance
+    - exercises/sc-deploy
+    - exercises/services-toolkit
+    - exercises/gui-intro
+    - exercises/gui-system-diagram
+    - exercises/gui-tech-docs
+    - exercises/gui-runtime-resources
+    - exercises/gui-app-live-view
+    - exercises/gui-api-plugin
+    - exercises/ide-plugins
+    - workshop-summary

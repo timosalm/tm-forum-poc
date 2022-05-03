@@ -1,0 +1,1 @@
+That concludes our high level overview of VMware Tanzu Application Platform.

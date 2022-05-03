@@ -1,0 +1,190 @@
+#@ load("@ytt:data", "data")
+#@ load("@ytt:base64", "base64")
+#@ load("@ytt:json", "json")
+---
+apiVersion: learningcenter.tanzu.vmware.com/v1beta1
+kind: Workshop
+metadata:
+  name: tm-forum-demo
+spec:
+  title: TM Forum demo
+  description: A workshop that demonstrates all the capabilities TAP provides for the TM Forum use-case
+  vendor: tanzu.vmware.com
+  difficulty: beginner
+  duration: 90m
+  url: https://github.com/tsalm-pivotal/tm-forum-poc
+  content:
+    image: #@ "{}/tap-workshop/tm-forum-poc-workshop:latest".format(data.values.container_registry.hostname)
+    files: #@ "github.com/{}/tm-forum-poc/workshop?ref={}".format(data.values.workshop_git.username,data.values.workshop_git.branch)
+  session:
+    namespaces:
+      budget: custom
+    applications:
+      terminal:
+        enabled: true
+        layout: split
+      console:
+        enabled: true
+        vendor: octant
+      editor:
+        enabled: true
+    env: 
+    - name: TAP_INGRESS
+      value: #@ data.values.tap.ingress_domain
+    - name: CONTAINER_REGISTRY_HOSTNAME
+      value: #@ data.values.container_registry.hostname
+    objects:
+      - apiVersion: v1
+        kind: LimitRange
+        metadata:
+          name: resource-limits
+        spec:
+          limits:
+            - type: PersistentVolumeClaim
+              max:
+                storage: 10Gi
+      # Permissions for tap-sa (Supply Chain)
+      - apiVersion: v1
+        kind: Secret
+        metadata:
+          name: tanzu-net-credentials
+        type: kubernetes.io/dockerconfigjson
+        data:
+          #@ docker_auth = base64.encode("{}:{}".format(data.values.tanzunet.username, data.values.tanzunet.password))
+          #@ docker_creds = {"username": data.values.tanzunet.username, "password": data.values.tanzunet.password, "auth": docker_auth}
+          .dockerconfigjson: #@ base64.encode(json.encode({"auths": {"registry.tanzu.vmware.com": docker_creds}}))
+      - apiVersion: v1
+        kind: Secret
+        metadata:
+          name: registry-credentials
+        type: kubernetes.io/dockerconfigjson
+        data:
+          #@ docker_auth = base64.encode("{}:{}".format(data.values.container_registry.username, data.values.container_registry.password))
+          #@ docker_creds = {"username": data.values.container_registry.username, "password": data.values.container_registry.password, "auth": docker_auth}
+          .dockerconfigjson: #@ base64.encode(json.encode({"auths": {data.values.container_registry.hostname: docker_creds}}))
+      - apiVersion: v1
+        kind: ServiceAccount
+        metadata:
+          name: $(session_namespace)-default
+        secrets:
+          - name: registry-credentials
+        imagePullSecrets:
+          - name: registry-credentials
+          - name: tanzu-net-credentials
+      - apiVersion: rbac.authorization.k8s.io/v1
+        kind: Role
+        metadata:
+          name: $(session_namespace)-default
+        rules:
+        - apiGroups: [source.toolkit.fluxcd.io]
+          resources: [gitrepositories]
+          verbs: ['*']
+        - apiGroups: [source.apps.tanzu.vmware.com]
+          resources: [imagerepositories]
+          verbs: ['*']
+        - apiGroups: [carto.run]
+          resources: [deliverables, runnables]
+          verbs: ['*']
+        - apiGroups: [kpack.io]
+          resources: [images]
+          verbs: ['*']
+        - apiGroups: [conventions.apps.tanzu.vmware.com]
+          resources: [podintents]
+          verbs: ['*']
+        - apiGroups: [""]
+          resources: ['configmaps']
+          verbs: ['*']
+        - apiGroups: [""]
+          resources: ['pods']
+          verbs: ['list']
+        - apiGroups: [tekton.dev]
+          resources: [taskruns, pipelineruns]
+          verbs: ['*']
+        - apiGroups: [tekton.dev]
+          resources: [pipelines]
+          verbs: ['list']
+        - apiGroups: [kappctrl.k14s.io]
+          resources: [apps]
+          verbs: ['*']
+        - apiGroups: [serving.knative.dev]
+          resources: ['services']
+          verbs: ['*']
+        - apiGroups: [servicebinding.io]
+          resources: ['servicebindings']
+          verbs: ['*']
+        - apiGroups: [services.apps.tanzu.vmware.com]
+          resources: ['resourceclaims']
+          verbs: ['*']
+        - apiGroups: [scanning.apps.tanzu.vmware.com]
+          resources: ['imagescans', 'sourcescans']
+          verbs: ['*']
+      - apiVersion: rbac.authorization.k8s.io/v1
+        kind: RoleBinding
+        metadata:
+          name: $(session_namespace)-default
+        roleRef:
+          apiGroup: rbac.authorization.k8s.io
+          kind: Role
+          name: $(session_namespace)-default
+        subjects:
+          - kind: ServiceAccount
+            name: $(session_namespace)-default
+            namespace: $(session_namespace)
+      # Permissions for workshop session
+      - apiVersion: rbac.authorization.k8s.io/v1
+        kind: RoleBinding
+        metadata:
+          name: $(session_namespace)-session-crb
+          namespace: $(session_namespace)
+        roleRef:
+          apiGroup: rbac.authorization.k8s.io
+          kind: ClusterRole
+          name: cluster-admin
+        subjects:
+          - kind: ServiceAccount
+            namespace: $(workshop_namespace)
+            name: $(service_account)
+
+      - apiVersion: rbac.authorization.k8s.io/v1
+        kind: RoleBinding
+        metadata:
+          name: $(session_namespace)-default-crb
+          namespace: $(session_namespace)
+        roleRef:
+          apiGroup: rbac.authorization.k8s.io
+          kind: ClusterRole
+          name: cluster-admin
+        subjects:
+          - kind: ServiceAccount
+            namespace: $(session_namespace)
+            name: default
+
+      # Install grype
+      - apiVersion: packaging.carvel.dev/v1alpha1
+        kind: PackageInstall
+        metadata:
+          name: $(session_namespace)-grype
+          namespace: tap-install
+        spec:
+          serviceAccountName: tap-install-sa
+          packageRef:
+            refName: grype.scanning.apps.tanzu.vmware.com
+            versionSelection:
+              constraints: ">=0.0.0"
+              prereleases:
+                identifiers: [beta, build]
+          values:
+          - secretRef:
+              name: $(session_namespace)-grype-values
+      - apiVersion: v1
+        kind: Secret
+        metadata:
+          name: $(session_namespace)-grype-values
+          namespace: tap-install
+        stringData:
+          values.yaml: |
+            ---
+            namespace: $(session_namespace)
+            scanner:
+              pullSecret: ""
+            targetImagePullSecret: registry-credentials

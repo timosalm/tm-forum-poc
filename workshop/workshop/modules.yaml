@@ -1,0 +1,68 @@
+modules:
+    workshop-overview:
+        name: A superior developer experience on Kubernetes
+        exit_sign: Use-Case
+    exercises/use-case:
+        name: "Use-Case: TM Forum Open APIs"
+        exit_sign: Onboarding
+    exercises/learning-center:
+        name: Onboard new developers
+        exit_sign: Bootstrap
+    exercises/app-accelerator:
+        name: Bootstrap the development of applications with standards
+        exit_sign: Version control system
+    exercises/git:
+        name: Push code to a version control system
+        exit_sign: Testing
+    exercises/tekton:
+        name: Define testing of the application
+        exit_sign: Path To Prod (Dev)
+    exercises/workload:
+        name: Configure a continous path to production
+        exit_sign: Path To Prod (Ops)
+    exercises/sc-concept:
+        name: Easily build Cloud Native Supply Chains
+        exit_sign: P2P - Tests
+    exercises/sc-testing:
+        name: Execute tests
+        exit_sign: P2P - Container
+    exercises/sc-container-building:
+        name: Build container image
+        exit_sign: P2P - Security
+    exercises/sc-security:
+        name: Secure the path to production
+        exit_sign: P2P - Use-Case
+    exercises/sc-api-conformance:
+        name: Ensure TM Forum API conformance
+        exit_sign: P2P - Deployment
+    exercises/sc-deploy:
+        name: Deployment of the application
+        exit_sign: Services Integration
+    exercises/services-toolkit:
+        name: Integrate services
+        exit_sign: Developer Portal
+    exercises/gui-intro:
+        name: A streamlined developer portal from end to end
+        exit_sign: Software Catalog
+    exercises/gui-system-diagram:
+        name: An uniform overview of all your software in one place
+        exit_sign: Tech Docs
+    exercises/gui-tech-docs:
+        name: Technical documentation like code
+        exit_sign: Application status
+    exercises/gui-runtime-resources:
+        name: Details and status of running applications
+        exit_sign: Application Monitoring
+    exercises/gui-app-live-view:
+        name: Real-time monitoring for running applications
+        exit_sign: API Discovery
+    exercises/gui-api-plugin: 
+        name: Discover APIs provided by other applications
+        exit_sign: Iterate
+    exercises/ide-plugins: 
+        name: Rapidly iterate on your application
+        exit_sign: Conclusion
+    workshop-summary:
+        name: Workshop Summary
+        exit_sign: Finish Workshop  
+        

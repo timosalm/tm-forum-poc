@@ -12,7 +12,7 @@ url: https://tap-gui.{{ ENV_TAP_INGRESS }}/create?filters%5Bkind%5D=template&fil
 
 Let's have a closer look at the Java version of the Accelerator.
 ```dashboard:open-url
-url: https://tap-gui.{{ ENV_TAP_INGRESS }}/create?filters%5Bkind%5D=template&filters%5Buser%5D=all&filters%5Btags%5D%5B0%5D=tmf620
+url: https://tap-gui.{{ ENV_TAP_INGRESS }}/create/templates/tmf-product-catalog-management-api-java
 ```
 
 As an alternative to the UI, it's also possible to generate a project from an Accelerator with the **tanzu CLI** that can also be used to add, update, and delete Accelerators.
@@ -21,6 +21,6 @@ command: tanzu accelerator list --server-url http://accelerator.{{ ENV_TAP_INGRE
 clear: true
 ```
 ```terminal:execute
-command: tanzu accelerator generate tmf-product-catalog-management-api-java --options '{"artifactId":"product-catalog-management-api-java","database":"mongo","gitUrl":"$GIT_URL","namespace":"{{ session_namespace }}","apiSpecLocation":"remote","ingressDomain":"{{ ENV_TAP_INGRESS }}}"' --server-url http://accelerator.{{ ENV_TAP_INGRESS }}
+command: tanzu accelerator generate tmf-product-catalog-management-api-java --options '{"artifactId":"product-catalog-management-api-java","database":"mongo","gitUrl":"$GIT_URL","namespace":"{{ session_namespace }}","apiSpecLocation":"remote","ingressDomain":"{{ ENV_TAP_INGRESS }}"}' --server-url http://accelerator.{{ ENV_TAP_INGRESS }}
 clear: true
 ```

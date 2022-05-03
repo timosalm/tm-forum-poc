@@ -2,6 +2,3 @@
 
 ![TAP Overview Diagram](images/tap-conceptual.png)
 
-The goal of this workshop is to get familiar with all capabilities the components of TAP provide.
-
-The first two components we'll have a look at in the next section are **cert-manager** and **Contour**.

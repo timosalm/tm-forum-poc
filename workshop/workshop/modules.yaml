@@ -22,19 +22,19 @@ modules:
         exit_sign: Path To Prod (Ops)
     exercises/sc-concept:
         name: Easily build Cloud Native Supply Chains
-        exit_sign: P2P - Tests
+        exit_sign: Path To Prod - Tests
     exercises/sc-testing:
         name: Execute tests
-        exit_sign: P2P - Container
+        exit_sign: Path To Prod - Container
     exercises/sc-container-building:
         name: Build container image
-        exit_sign: P2P - Security
+        exit_sign: Path To Prod - Security
     exercises/sc-security:
         name: Secure the path to production
-        exit_sign: P2P - Use-Case
+        exit_sign: Path To Prod - Use-Case
     exercises/sc-api-conformance:
         name: Ensure TM Forum API conformance
-        exit_sign: P2P - Deployment
+        exit_sign: Path To Prod - Deployment
     exercises/sc-deploy:
         name: Deployment of the application
         exit_sign: Services Integration

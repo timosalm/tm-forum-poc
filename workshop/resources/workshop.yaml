@@ -7,8 +7,8 @@ kind: Workshop
 metadata:
   name: tm-forum-demo
 spec:
-  title: TM Forum demo
-  description: A workshop that demonstrates all the capabilities TAP provides for the TM Forum use-case
+  title: TM Forum Open APIs demo
+  description: A workshop that demonstrates all the capabilities TAP provides for the TM Forum Open APIs use-case
   vendor: tanzu.vmware.com
   difficulty: beginner
   duration: 90m

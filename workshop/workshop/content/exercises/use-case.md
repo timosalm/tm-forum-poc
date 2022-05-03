@@ -1,6 +1,6 @@
 TM Forum’s Open API program is a global initiative to enable seamless connectivity, interoperability and portability across complex ecosystem services.
 
-```dashboard:create-dashboard
+```dashboard:open-url
 name: TM Forum Open APIs
 url: https://www.tmforum.org/oda/about-open-apis/
 ```
@@ -15,8 +15,4 @@ The goals of this demonstration with this specific use-case are to show how TAP 
 - ... allows developers to be able to focus on delivering value to their users instead of caring about how their services will be deployed
 - ... ensures only Open API compatible services that meet regulatory, security, and compliance requirements will be deployed 
 - ... provides a full developer portal with for example API discovery and monitoring capabilities
-
-```dashboard:delete-dashboard
-name: TM Forum Open APIs
-```
 

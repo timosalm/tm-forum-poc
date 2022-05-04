@@ -11,7 +11,7 @@ Due to the fact that we as most of the other organizations already have other CI
 
 For our use-case each development team is responsible for the creation of the test automation of their application which gives them the flexibility to use the frameworks and tools they prefer. A starting point for this test automation can be also provided as part of the Accelerator - like in our example.
 
-In our example, the Tekton Pipline just executes our unit test via `mvn test`.
+This basic Tekton Pipline just executes our unit tests via `mvn test`.
 ```editor:open-file
 file: tmf-product-catalog-management-api-java/config/mvn-test-pipeline.yaml
 ```

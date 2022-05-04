@@ -26,3 +26,8 @@ Because steps of the path to production are rarely synchronous, for example, if 
 The supply chain may also be **extended to include integrations to existing CI/CD pipelines** like for our test automation Tekton Pipeline.
 
 VMware Tanzu Application provides a **full integration of all of its components via out of the box Supply Chains** that can be customized for our processes and tools.
+
+Let's now have a closer look at the path to production for our use-case for which we added one custom step to the ones that are out-of-the-box available with TAP.
+```dashboard:open-url
+url: https://tap-gui.tap.oneportal.vodafone.com/supply-chain/default/product-catalog-management-api-java
+```

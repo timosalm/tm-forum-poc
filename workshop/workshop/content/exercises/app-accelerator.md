@@ -24,3 +24,9 @@ clear: true
 command: tanzu accelerator generate tmf-product-catalog-management-api-java --options '{"artifactId":"product-catalog-management-api-java","database":"mongo","gitUrl":"$GIT_URL","namespace":"{{ session_namespace }}","apiSpecLocation":"remote","ingressDomain":"{{ ENV_TAP_INGRESS }}"}' --server-url http://accelerator.{{ ENV_TAP_INGRESS }}
 clear: true
 ```
+
+Finally, we are able to extract the project files from the archive.
+```terminal:execute
+command: unzip tmf-product-catalog-management-api-java.zip
+clear: true
+```

@@ -27,6 +27,6 @@ clear: true
 
 Finally, we are able to extract the project files from the archive.
 ```terminal:execute
-command: unzip tmf-product-catalog-management-api-java.zip
+command: unzip tmf-product-catalog-management-api-java.zip && cd tmf-product-catalog-management-api-java
 clear: true
 ```

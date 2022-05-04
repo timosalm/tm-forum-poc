@@ -10,5 +10,6 @@ file: supplychain/config/api-conformance-test-run-template.yaml
 ```
 
 Via the `mvn integration-test` command we first generate the Open API specification based on the provided source code.
+
 After that we use the CLI functionailty provided by the SCTK to generate the TMF Open API specification for the Product Catalog Management API (TMF620) and then compare both.
 If the API of provided source code is not conform with the TMF620 spec, the step will fail and the developers have to fix it to get their application deployed to production.

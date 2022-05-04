@@ -28,13 +28,11 @@ As alternative, it's possible to directly view the results via kubectl and the c
 
 ###### Container signing
 
-The Sign part of the supply chain provides an admission WebHook that:
+TAP also provides optional container signing capabilites via an admission WebHook that:
 - Verifies signatures on container images used by Kubernetes resources.
 - Enforces policy by allowing or denying container images from running based on configuration.
 - Adds metadata to verified resources according to their verification status.
 - It intercepts all resources that create Pods as part of their lifecycle.
 
 This component uses **cosign** as its backend for signature verification and is compatible only with cosign signatures. 
-
-**By default, once installed, this component does not include any policy resources and does not enforce any policy.** The operator must create a ClusterImagePolicy resource in the cluster before the WebHook can perform any verifications
 

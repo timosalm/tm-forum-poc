@@ -25,15 +25,15 @@ modules:
         exit_sign: Path To Prod - Tests
     exercises/sc-testing:
         name: Execute tests
-        exit_sign: Path To Prod - Container
-    exercises/sc-container-building:
-        name: Build container image
+        exit_sign: Path To Prod - Use-Case
+     exercises/sc-api-conformance:
+        name: Ensure TM Forum API conformance
         exit_sign: Path To Prod - Security
     exercises/sc-security:
         name: Secure the path to production
-        exit_sign: Path To Prod - Use-Case
-    exercises/sc-api-conformance:
-        name: Ensure TM Forum API conformance
+        exit_sign: Path To Prod - Container
+    exercises/sc-container-building:
+        name: Build container image
         exit_sign: Path To Prod - Deployment
     exercises/sc-deploy:
         name: Deployment of the application

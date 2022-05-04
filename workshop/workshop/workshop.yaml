@@ -10,9 +10,9 @@ modules:
     - exercises/workload
     - exercises/sc-concept
     - exercises/sc-testing
-    - exercises/sc-container-building
-    - exercises/sc-security
     - exercises/sc-api-conformance
+    - exercises/sc-security
+    - exercises/sc-container-building
     - exercises/sc-deploy
     - exercises/services-toolkit
     - exercises/gui-intro

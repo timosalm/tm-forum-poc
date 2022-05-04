@@ -1,3 +1,5 @@
+**Persona: Developers**
+
 Because we all make mistakes, testing the implementation of the application is important. 
 To reduce the effort for testing our application on every change, it's recommended to automate the test execution.
 

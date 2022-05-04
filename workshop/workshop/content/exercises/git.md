@@ -1,3 +1,5 @@
+**Persona: Developers**
+
 The inital version of our project is now ready to be pushed to a repository of a version control system like GIT to make it available to other team members.
 
 ```terminal:execute

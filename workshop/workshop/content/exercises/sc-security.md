@@ -10,26 +10,21 @@ file: supplychain/config/scan-policy.yaml
 ###### Viewing scan status
 VMware is working on making the status of the source code and container scans available via a "security analyst" dashboard in the UI and also the Supply Chain view.
 
-**TODO***
 In the meantime, it's possible to fetch the results via the tanzu CLI's insight plugin.
 ```terminal:execute
-command: tanzu insight source vulnerabilities --commit
+command: |
+  COMMIT=$(kubectl get workload  product-catalog-management-api-java -o jsonpath='{.status.resources[?(@.name=="source-provider")].outputs[?(@.name=="revision")].preview}')
+  tanzu insight source vulnerabilities --commit $COMMIT
 clear: true
 ```
 ```terminal:execute
-command: tanzu insight image vulnerabilities --digest
+command: |
+  DEPLOYED_IMAGE_DIGEST=$(kubectl get kservice product-catalog-management-api-java -o jsonpath='{.spec.template.spec.containers[0].image}' | awk -F @ '{ print $2 }')
+  tanzu insight image vulnerabilities --digest $DEPLOYED_IMAGE_DIGEST
 clear: true
 ```
 
 As alternative, it's possible to directly view the results via kubectl and the custom resources.
-```terminal:execute
-command: kubectl describe sourcescans product-catalog-management-api-java
-clear: true
-```
-```terminal:execute
-command: kubectl describe imagescans product-catalog-management-api-java
-clear: true
-```
 
 ###### Container signing
 

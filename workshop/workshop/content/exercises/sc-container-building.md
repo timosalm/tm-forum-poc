@@ -16,9 +16,9 @@ The application is then compiled by the appropriate buildpack and a container im
 
 The biggest benefits of CNBs are increased security, minimized risk, and increased developer productivity because they don't need to care much about the details of how to build a container.
 
-With all the benefits of Cloud Native Buildpacks, one of the biggest challenges with container images still is to keep the operating system, used libraries, etc. up-to-date in order to minimize attack vectors by CVEs.
+With all the benefits of Cloud Native Buildpacks, one of the **biggest challenges with container images still is to keep the operating system, used libraries, etc. up-to-date** in order to minimize attack vectors by CVEs.
 
-With **VMware Tanzu Build Service (TBS)**, which is part of TAP, it's possible automatically recreate and push an updated container image to the target registry, if there is a new version of the buildpack or the base operating system available (e.g. due to a CVE), a new container is automatically created and pushed to the target registry.
+With **VMware Tanzu Build Service (TBS)**, which is part of TAP, it's possible **automatically recreate and push an updated container image to the target registry, if there is a new version of the buildpack or the base operating system available** (e.g. due to a CVE), a new container is automatically created and pushed to the target registry.
 With our Supply Chain, it's then possible to deploy security patches automatically.
 This fully automated update functionality of the base container stack is a big competitive advantage compared to other tools.
 

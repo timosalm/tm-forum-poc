@@ -1,0 +1,33 @@
+---
+apiVersion: accelerator.apps.tanzu.vmware.com/v1alpha1
+kind: Accelerator
+metadata:
+  name: hello-world-custom
+  namespace: accelerator-system
+spec:
+  git:
+    url: https://github.com/GShuttleworth/tap-hello-world.git
+    ref:
+      branch: main
+---
+apiVersion: accelerator.apps.tanzu.vmware.com/v1alpha1
+kind: Accelerator
+metadata:
+  name: tmf-product-catalog-management-api-java
+  namespace: accelerator-system
+spec:
+  git:
+    url: https://github.com/tsalm-pivotal/tm-forum-java.git
+    ref:
+      branch: main
+---
+apiVersion: accelerator.apps.tanzu.vmware.com/v1alpha1
+kind: Accelerator
+metadata:
+  name: tmf-product-catalog-management-api-nodejs
+  namespace: accelerator-system
+spec:
+  git:
+    url: https://github.com/tsalm-pivotal/tm-forum-nodejs.git
+    ref:
+      branch: main

@@ -22,6 +22,10 @@ VMware is currently working on the following additional runtimes:
 - **Batch:** Scheduled jobs to complete tasks
 
 ##### GitOps
+TAP supports both, RegistryOps and GitOps.
+**RegistryOps** is typically used for inner loop flows where configuration is treated as an artifact from quick iterations by developers. In this scenario, at the end of the supply chain, configuration is pushed to a container image registry in the form of an imgpkg bundle. You can think of it as a container image whose sole purpose is to carry arbitrary files.
+
+The GitOps approach differs from local iteration in that GitOps configures the supply chains to push the Kubernetes configuration to a remote Git repository. This allows users to compare configuration changes and promote those changes through environments by using GitOps principles.
 
 ##### Conventions
 

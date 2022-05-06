@@ -21,4 +21,3 @@ With all the benefits of Cloud Native Buildpacks, one of the **biggest challenge
 With **VMware Tanzu Build Service (TBS)**, which is part of TAP, it's possible **automatically recreate and push an updated container image to the target registry, if there is a new version of the buildpack or the base operating system available** (e.g. due to a CVE), a new container is automatically created and pushed to the target registry.
 With our Supply Chain, it's then possible to deploy security patches automatically.
 This fully automated update functionality of the base container stack is a big competitive advantage compared to other tools.
-

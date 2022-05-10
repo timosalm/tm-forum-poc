@@ -24,7 +24,7 @@ The recommended multi-cluter installation of the following types of clusters:
 - The **View Cluster** is designed to run the developer portal (TAP GUI), Learning Center, and API Portal. One benefit of having them on a separate cluster for us is, that developers are able to discover all the applications in the different markets.
 - Several **Run Clusters** for the different stages and markets that read the container image and Kubernetes resources created by the Build Cluster and runs them as defined for each application.
 
-![TAP mulit-cluster architecture](images/reference-architecture.png)
+![TAP mulit-cluster architecture](../images/reference-architecture.png)
 
 ##### Cloud Native Runtimes for VMware Tanzu
 

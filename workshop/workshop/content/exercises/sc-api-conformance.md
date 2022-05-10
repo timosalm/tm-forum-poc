@@ -2,7 +2,7 @@
 
 The next step in our path to production is a custom step we added for our use-case to check the conformance of the API provided by our application with the TMF Open API specification.
 
-In the current process, if developers change the API of their application, they have to generate the API specification in Swagger or Open-API format and push it to a specific GIT repository. Then it will be checked by a Static Conformance Test Kit (SCTK) and the results made available via Elasticsearch.
+In the current process, if developers change the API of their application, they have to generate the API specification in Swagger or Open-API format and push it to a specific Git repository. Then it will be checked by a Static Conformance Test Kit (SCTK) and the results made available via Elasticsearch.
 
 With integrated this process in the path to production, fully automated it, and ensured that only conformant APIs will be deployed. We also used Tekton to implement this functionality but it would also be possible to e.g. create a custom Kubernetes resource for it.
 ```editor:open-file

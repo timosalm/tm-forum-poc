@@ -1,14 +1,14 @@
 **Persona: Developers**
 
-The inital version of our project is now ready to be pushed to a repository of a version control system like GIT to make it available to other team members.
+The inital version of our project is now ready to be pushed to a repository of a version control system like Git to make it available to other team members.
 
 ```terminal:execute
 command: |
   git init
-  git branch -M main
-  git remote add origin $GIT_URL
+  git branch -M {{ session_namespace }}
+  git remote add origin $APP_GIT_REPO_SSH_URL
   git add .
   git commit -m "Initial commit"
-  git push -u origin main
+  git push -u origin {{ session_namespace }}
 clear: true
 ```

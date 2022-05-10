@@ -33,6 +33,8 @@ spec:
       value: #@ data.values.tap.ingress_domain
     - name: CONTAINER_REGISTRY_HOSTNAME
       value: #@ data.values.container_registry.hostname
+    - name: CONTAINER_REGISTRY_REPOSITORY
+      value: #@ data.values.container_registry.repository
     - name: APP_GIT_REPO_SSH_URL
       value: #@ data.values.app_git.ssh_url
     - name: APP_GIT_REPO_HTTP_URL

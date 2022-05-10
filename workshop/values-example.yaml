@@ -6,6 +6,7 @@ container_registry:
   hostname: harbor.example.com
   username: admin
   password:
+  repository: tap-wkld
 workshop_git:
   username: user
   branch: main

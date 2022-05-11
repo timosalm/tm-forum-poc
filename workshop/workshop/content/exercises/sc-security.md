@@ -21,14 +21,11 @@ clear: true
 Both scanning stepts automatically store the resulting source code and image vulnerability reports to a database which allows us to query for image, source code, package, and vulnerability relationships via an API and the tanzu CLI's insight plugin. The so called **Metadata Store** accepts CycloneDX input and outputs in both human-readable and machine-readable formats, including JSON, text, and CycloneDX.
 
 ```terminal:execute
-command: |
-  tanzu insight source vulnerabilities --commit $(get_commit)
+command: tanzu insight source vulnerabilities --commit $(get_commit)
 clear: true
 ```
 ```terminal:execute
-command: |
-  get_image_digest
-  tanzu insight image vulnerabilities --digest $(get_image_digest)
+command: tanzu insight image vulnerabilities --digest $(get_image_digest)
 clear: true
 ```
 VMware is also working on making this information available via a "security analyst" dashboard in the UI.

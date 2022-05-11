@@ -5,10 +5,10 @@ The inital version of our project is now ready to be pushed to a repository of a
 ```terminal:execute
 command: |
   git init
-  git branch -M {{ session_namespace }}
-  git remote add origin $APP_GIT_REPO_SSH_URL
   git add .
   git commit -m "Initial commit"
+  git branch -M {{ session_namespace }}
+  git remote add origin $APP_GIT_REPO_SSH_URL
   git push -u origin {{ session_namespace }}
 clear: true
 ```

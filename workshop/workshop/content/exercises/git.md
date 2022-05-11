@@ -7,7 +7,7 @@ command: |
   git init
   git add .
   git commit -m "Initial commit"
-  git branch -M {{ session_namespace }}-$UUID
+  git branch -M $GIT_BRANCH
   git remote add origin {{ ENV_APP_GIT_REPO_SSH_URL }}
   git push -u origin $GIT_BRANCH
 clear: true

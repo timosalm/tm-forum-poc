@@ -10,7 +10,7 @@ eval `ssh-agent -s`
 ssh-add ~/.ssh/tm-forum-poc-ws-repo
 
 cat <<EOF >> ~/.ssh/config
-  Host github
+  Host github.com
     Hostname github.com
     User git
     IdentityFile=~/.ssh/tm-forum-poc-ws-repo

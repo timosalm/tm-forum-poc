@@ -15,6 +15,8 @@ cat <<EOF >> ~/.ssh/config
     IdentityFile=~/.ssh/tm-forum-poc-ws-repo
 EOF
 
+git clone https://github.com/tsalm-pivotal/tm-forum-poc.git
+
 export METADATA_STORE_ACCESS_TOKEN=$(kubectl get secrets -n metadata-store -o jsonpath="{.items[?(@.metadata.annotations['kubernetes\.io/service-account\.name']=='metadata-store-read-write-client')].data.token}" | base64 -d)
 tanzu insight config set-target  https://metadata-store.${TAP_INGRESS} --access-token=$METADATA_STORE_ACCESS_TOKEN
 tanzu insight health

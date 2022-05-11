@@ -27,7 +27,6 @@ RUN chown -R eduk8s:users /home/eduk8s/.config
 RUN curl -fsSL https://raw.githubusercontent.com/tilt-dev/tilt/master/scripts/install.sh | bash 
 RUN chown -R eduk8s:users /home/eduk8s/.tilt-dev
 
-
 # Cleanup directory
 
 RUN rm -rf /tmp/*

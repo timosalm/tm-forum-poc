@@ -7,8 +7,8 @@ command: |
   git init
   git add .
   git commit -m "Initial commit"
-  git branch -M {{ session_namespace }}
+  git branch -M {{ session_namespace }}-$(cat /proc/sys/kernel/random/uuid)
   git remote add origin $APP_GIT_REPO_SSH_URL
-  git push -u origin {{ session_namespace }}
+  git push -u origin {{ session_namespace }}-$(cat /proc/sys/kernel/random/uuid)
 clear: true
 ```

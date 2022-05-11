@@ -15,12 +15,12 @@ For our use-case each development team is responsible for the creation of the te
 
 This basic Tekton Pipline just executes our unit tests via `mvn test`.
 ```editor:open-file
-file: tmf-product-catalog-management-api-java/config/mvn-test-pipeline.yaml
+file: tmf-product-catalog-management-api-java/config/test-pipeline.yaml
 ```
 
 Let's now create the Tekton Pipline resource in a Kubernetes namespace, the development team has access to.
 ```terminal:execute
-command: kubectl apply -f config/mvn-test-pipeline.yaml
+command: kubectl apply -f config/test-pipeline.yaml
 clear: true
 ```
 VMware is also working on a solution to automatically apply those Tekton Pipelines available in the same repository as the source code.

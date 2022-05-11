@@ -10,9 +10,9 @@ This extension enables developers to:
 **Code snippets** enable you to quickly add the files necessary to develop against TAP to existing projects by creating a template in an empty file which you fill out with the required information. 
 
 ```editor:execute-command
-command: vscode.openFolder
+command: workbench.action.files.openFolder
 args:
-- /home/eduk8s/tmf-product-catalog-management-api-java/
+- uri: /home/eduk8s/tmf-product-catalog-management-api-java/
 ```
 
 Let's first try out the **live update functionality**. 

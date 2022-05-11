@@ -22,14 +22,13 @@ Both scanning stepts automatically store the resulting source code and image vul
 
 ```terminal:execute
 command: |
-  COMMIT=$(kubectl get workload  product-catalog-management-api-java -o jsonpath='{.status.resources[?(@.name=="source-provider")].outputs[?(@.name=="revision")].preview}')
-  tanzu insight source vulnerabilities --commit $COMMIT
+  tanzu insight source vulnerabilities --commit $(get_commit)
 clear: true
 ```
 ```terminal:execute
 command: |
-  DEPLOYED_IMAGE_DIGEST=$(kubectl get kservice product-catalog-management-api-java -o jsonpath='{.spec.template.spec.containers[0].image}' | awk -F @ '{ print $2 }')
-  tanzu insight image vulnerabilities --digest $DEPLOYED_IMAGE_DIGEST
+  get_image_digest
+  tanzu insight image vulnerabilities --digest $(get_image_digest)
 clear: true
 ```
 VMware is also working on making this information available via a "security analyst" dashboard in the UI.

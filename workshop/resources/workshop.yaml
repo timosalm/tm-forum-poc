@@ -227,3 +227,46 @@ spec:
             }
 
             isCompliant = isSafe(input.currentVulnerability)
+      # MongoDb service binding
+      - apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+        kind: ResourceClaim
+        metadata:
+          name: mongodb-binding-compatibleå
+        spec:
+          ref:
+            apiVersion: v1
+            kind: Secret
+            name: mongodb-binding-compatible
+      - apiVersion: v1
+        kind: Secret
+        metadata:
+          name: mongodb-binding-compatible
+        type: Opaque
+        stringData:
+            type: mongodb
+            uri: #@ data.values.mongodb.uri
+            database: #@ data.values.mongodb.database
+      # Insight CLI plugin
+      - apiVersion: rbac.authorization.k8s.io/v1
+        kind: Role
+        metadata:
+          name: $(session_namespace)-default
+          namespace: metadata-store
+        rules:
+          - apiGroups: [""]
+            resources: ["secrets"]
+            verbs: ["list", "get"]
+      - apiVersion: rbac.authorization.k8s.io/v1
+        kind: RoleBinding
+        metadata:
+          name: $(session_namespace)-default
+          namespace: metadata-store
+        roleRef:
+          apiGroup: rbac.authorization.k8s.io
+          kind: Role
+          name: $(session_namespace)-default     
+        subjects:
+        - kind: Group
+          name: system:serviceaccounts:$(workshop_namespace)
+          namespace: $(session_namespace)
+          apiGroup: rbac.authorization.k8s.io

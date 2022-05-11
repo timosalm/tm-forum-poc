@@ -6,7 +6,7 @@ In the current process, if developers change the API of their application, they 
 
 With integrated this process in the path to production, fully automated it, and ensured that only conformant APIs will be deployed. We also used Tekton to implement this functionality but it would also be possible to e.g. create a custom Kubernetes resource for it.
 ```editor:open-file
-file: supplychain/config/api-conformance-test-run-template.yaml
+file: tm-forum-poc/supplychain/config/api-conformance-test-run-template.yaml
 ```
 
 Via the `mvn integration-test` command we first generate the Open API specification based on the provided source code.

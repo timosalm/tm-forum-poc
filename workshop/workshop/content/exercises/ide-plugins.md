@@ -12,7 +12,7 @@ This extension enables developers to:
 ```editor:execute-command
 command: vscode.openFolder
 args:
-- "~/tmf-product-catalog-management-api-java"
+- /home/eduk8s/tmf-product-catalog-management-api-java
 ```
 
 Let's first try out the **live update functionality**. 

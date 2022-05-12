@@ -74,15 +74,6 @@ spec:
           #@ docker_auth = base64.encode("{}:{}".format(data.values.container_registry.username, data.values.container_registry.password))
           #@ docker_creds = {"username": data.values.container_registry.username, "password": data.values.container_registry.password, "auth": docker_auth}
           .dockerconfigjson: #@ base64.encode(json.encode({"auths": {data.values.container_registry.hostname: docker_creds}}))
-      - apiVersion: v1
-        kind: ServiceAccount
-        metadata:
-          name: $(session_namespace)-default
-        secrets:
-          - name: registry-credentials
-        imagePullSecrets:
-          - name: registry-credentials
-          - name: tanzu-net-credentials
       - apiVersion: rbac.authorization.k8s.io/v1
         kind: Role
         metadata:
@@ -140,7 +131,7 @@ spec:
           name: $(session_namespace)-default
         subjects:
           - kind: ServiceAccount
-            name: $(session_namespace)-default
+            name: default
             namespace: $(session_namespace)
       # Permissions for workshop session
       - apiVersion: rbac.authorization.k8s.io/v1

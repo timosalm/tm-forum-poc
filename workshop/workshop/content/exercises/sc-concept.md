@@ -29,5 +29,5 @@ VMware Tanzu Application provides a **full integration of all of its components 
 
 Let's now have a closer look at the path to production for our use-case for which we added one custom step to the ones that are out-of-the-box available with TAP.
 ```dashboard:open-url
-url: https://tap-gui.{{ ENV_TAP_INGRESS }}/supply-chain/default/product-catalog-management-api-java
+url: https://tap-gui.{{ ENV_TAP_INGRESS }}/supply-chain/{{ session_namespace }}/product-catalog-management-api-java
 ```

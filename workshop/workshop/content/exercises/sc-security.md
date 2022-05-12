@@ -13,7 +13,11 @@ clear: true
 The functionality to see the scan results in the Supply Chain view will be probably available in TAP 1.2.
 In the meantime it's possible to directly view the results via kubectl and the custom resources.
 ```terminal:execute
-command: kubectl describe imagescan,sourcescan product-catalog-management-api-java
+command: kubectl describe sourcescan product-catalog-management-api-java 
+clear: true
+```
+```terminal:execute
+command: kubectl describe imagescan product-catalog-management-api-java
 clear: true
 ```
 

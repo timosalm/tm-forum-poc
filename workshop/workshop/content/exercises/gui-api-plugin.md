@@ -7,7 +7,7 @@ url: https://tap-gui.{{ ENV_TAP_INGRESS }}/catalog/default/api/tmf-product-catal
 
 The plug-in that is available in the current version of TAP is based on the Backstage OSS plugin. In addition VMware has its own API discovery solution **API portal for VMware Tanzu** that is also part of TAP.
 ```dashboard:open-url
-url: https://api-portal.{{ ENV_TAP_INGRESS }}
+url: https://api-portal.{{ ENV_TAP_INGRESS }}/group/tmf-product-catalog-management-api
 ```
 It **adds some capabilities** like the automated discovery of APIs of another product, the developer friendly API Gateway called **VMware Spring Cloud Gateway for Kubernetes**.
 VMware is working on the integration of API portal for VMware Tanzu (and VMware Spring Cloud Gateway for Kubernetes) into TAP GUI with new capabilities like the generation of session tokens for the HTTP Authorization of the APIs.

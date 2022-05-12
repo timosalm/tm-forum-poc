@@ -12,7 +12,7 @@ Let's have a look at the ready to use Workload configuration provided by the Acc
 ```editor:open-file
 file: tmf-product-catalog-management-api-java/config/workload.yaml
 ```
-As you can see we use our Git repository with the application sourcecode as a source. With that we can configure a **continous path production** where every git commit to the codebase will trigger another execution of the supply chain and developers have to apply a Workload only once if they start with a new application or microservice. It's also supported via the tanzu CLI to use source code from the filesystem instead of a Git repository and deploy a container image from e.g. an ISV. 
+As you can see we use our Git repository with the application sourcecode as a source. With that we can configure a **continous path to production** where every git commit to the codebase will trigger another execution of the supply chain and developers have to apply a Workload only once if they start with a new application or microservice. It's also supported via the tanzu CLI to use source code from the filesystem instead of a Git repository and deploy a container image from e.g. an ISV. 
 
 As already mentioned a path to production can be reused by many applications. For our use-case the right **path to production will be chosen by the labels** for the application type, whether our source code contains tests and whether the API conformance has to be checked. It's also possible to configure the selector for a path to production based on other configurations available in the Workload.
 
@@ -20,7 +20,7 @@ The `app.kubernetes.io/part-of` label is relevant for another component of TAP, 
 
 Last but not least, there is the configuration of a `serviceClaim` which enables automated binding of data services and their credentials to an application running as container in a Kubernetes cluster - in this case a MongoDB Atlas cluster.
 
-Development teams are then able to initiate their continous path production with the tanzu CLI.
+Development teams are then able to initiate their continous path to production with the tanzu CLI.
 ```terminal:execute
 command: tanzu apps workload create -f config/workload.yaml -y
 clear: true

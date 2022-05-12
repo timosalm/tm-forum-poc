@@ -24,21 +24,21 @@ Those three files are the following:
 
 In our project the first two are already included and configured. To show the code snippet functionality the `Tiltfile` is not part of the App Accelerator and we will generate it now!
 ```editor:append-lines-to-file
-file: tmf-product-catalog-management-api-java/Tiltfile
+file: ~/tmf-product-catalog-management-api-java/Tiltfile
 text: ""
 ```
 **By entering** `tanzu tiltfile` in the created file the Code snippets functionality will be triggered and we can replace the placeholders with our configuration.
 ```terminal:execute
-command: sed -i 's/path-to-workload-yaml/config\/workload.yaml/' tmf-product-catalog-management-api-java/Tiltfile
+command: sed -i 's/path-to-workload-yaml/config\/workload.yaml/' ~/tmf-product-catalog-management-api-java/Tiltfile
 clear: true
 ```
 ```terminal:execute
-command: sed -i 's/workload-name/product-catalog-management-api-java/' tmf-product-catalog-management-api-java/Tiltfile
+command: sed -i 's/workload-name/product-catalog-management-api-java/' ~/tmf-product-catalog-management-api-java/Tiltfile
 clear: true
 ```
 We also have to add one instruction to allow to deploy our application to the cluster which is detected as "production" cluster. 
 ```editor:append-lines-to-file
-file: tmf-product-catalog-management-api-java/Tiltfile
+file: ~/tmf-product-catalog-management-api-java/Tiltfile
 text: allow_k8s_contexts('eduk8s')
 ```
 

@@ -56,6 +56,11 @@ This code change will automatically trigger a patch to the running container. In
 url: https://product-catalog-management-api-java-{{ session_namespace }}.cnr.{{ ENV_TAP_INGRESS }}
 ```
 
+Let's now stop our live update functionality and have a look at debugging.
+```editor:execute-command
+command: tanzu.liveUpdateStop
+```
+
 To start **debugging** on the cluster:
 1. Add a breakpoint in our code.
 2. Right-click the workload.yaml file in our project.

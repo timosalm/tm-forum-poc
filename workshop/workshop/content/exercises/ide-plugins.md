@@ -7,12 +7,39 @@ This extension enables developers to:
 - Live update workloads directly onto TAP-enabled Kubernetes cluster
 - Debug workloads directly on TAP-enabled Kubernetes clusters
 
-**Code snippets** enable you to quickly add the files necessary to develop against TAP to existing projects by creating a template in an empty file which you fill out with the required information. 
-
+Let's first set the workspace to our application's source code.
 ```editor:execute-command
 command: workbench.action.files.openFolder
-args:
-- uri: /home/eduk8s/tmf-product-catalog-management-api-java/
+```
+Copy/paste the following path to the command prompt.
+```copy
+/home/eduk8s/tmf-product-catalog-management-api-java/
+```
+
+**Code snippets** enable you to quickly add three files necessary to develop against TAP to existing projects by creating a template in an empty file which you fill out with the required information. 
+Those three files are the following:
+- The `workload.yaml` file provides instructions to the Supply Chain Choreographer for how a workload must be built and managed.
+- The `catalog-info.yaml` file enables the workloads created with the Tanzu Developer Tools extension to be visible in the TAP GUI.
+- The `Tiltfile` provides the configuration for Tilt to enable your project to live update on the Tanzu Application Platform.
+
+In our project the first two are already included and configured. To show the code snippet functionality the `Tiltfile` is not part of the App Accelerator and we will generate it now!
+```editor:append-lines-to-file
+file: Tiltfile
+text: ""
+```
+By entering `tanzu tiltfile` in the created file the Code snippets functionality will be triggered and we can replace the placeholders with our configuration.
+```terminal:execute
+command: sed -i 's/path-to-workload-yaml/config\/workload.yaml/' tmf-product-catalog-management-api-java/Tiltfile
+clear: true
+```
+```terminal:execute
+command: sed -i 's/workload-name/product-catalog-management-api-java/' tmf-product-catalog-management-api-java/Tiltfile
+clear: true
+```
+We also have to add one instruction to allow to deploy our application to the cluster which is detected as "production" cluster. 
+```editor:append-lines-to-file
+file: Tiltfile
+text: allow_k8s_contexts('eduk8s')
 ```
 
 Let's first try out the **live update functionality**. 

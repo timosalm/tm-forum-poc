@@ -23,7 +23,7 @@ spec:
           script: |-
             cd `mktemp -d`
             wget -qO- $(runnable.spec.inputs.source-url)$ | tar xvz -m
-            mvn integration-test
+            mvn integration-test -DskipTests
             cat target/openapi.json | tee /tekton/results/openapi-spec.json
         - image: harbor.emea.end2end.link/vodafone/api-test-engine  
           name: api-conformance-test

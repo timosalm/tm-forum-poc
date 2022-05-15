@@ -4,7 +4,7 @@ To be able to get all the benefits for our application Kubernetes provides, we h
 
 The most obvious way to do this, is to write a Dockerfile, run `docker build` and push it to the container registry of our choice via `docker push`.
 
-![Docker Process](../images/dockerfile.png)
+![](../images/dockerfile.png)
 
 As you can see, in general it is relatively easy and requires little effort to containerize an application, but whether you should go into production with it, is another question, because it is hard to create an optimized and secure container image (or Dockerfile).
 

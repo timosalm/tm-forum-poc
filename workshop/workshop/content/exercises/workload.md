@@ -3,7 +3,7 @@
 After the test automation, the rest of the path to production has to automated and configured. 
 
 With TAP, by design, **a path to production can be reused by many applications**. 
-![Cartographer High Level Diagram](../images/cartographer.png)
+![](../images/cartographer.png)
 This allows an operator to specify the steps in the path to production a single time, and for developers to specify their applications independently but for each to use the same path to production. The intent is that developers are able to focus on providing value for their users and can reach production quickly and easily, while providing peace of mind for app operators, who are ensured that each application has passed through the steps of the path to production that they’ve defined.
 
 To set configurations like the location of the source code repository, environment variables and service claims for an application, there is an abstraction for developers called **Workloads**. 

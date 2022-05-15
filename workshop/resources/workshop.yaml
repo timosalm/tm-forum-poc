@@ -65,14 +65,6 @@ spec:
           #@ docker_auth = base64.encode("{}:{}".format(data.values.tanzunet.username, data.values.tanzunet.password))
           #@ docker_creds = {"username": data.values.tanzunet.username, "password": data.values.tanzunet.password, "auth": docker_auth}
           .dockerconfigjson: #@ base64.encode(json.encode({"auths": {"registry.tanzu.vmware.com": docker_creds}}))
-      - apiVersion: v1
-        kind: Secret
-        metadata:
-          name: registry-credentials
-        type: kubernetes.io/dockerconfigjson
-        data:
-          #@ docker_creds = {"username": data.values.container_registry.username, "password": data.values.container_registry.password}
-          .dockerconfigjson: #@ base64.encode(json.encode({"auths": {data.values.container_registry.hostname: docker_creds}}))
       - apiVersion: rbac.authorization.k8s.io/v1
         kind: Role
         metadata:

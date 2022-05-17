@@ -31,7 +31,7 @@ It's also possible to provide all the configuration we saw in the workload.yaml 
 tanzu apps workload create --help
 ```
 
-tanzu CLI's app plugin also provides the functionality to stream logs for a Workload from all the pods that are involved in the deplyoment process to the running application.
+Tanzu CLI's app plugin also provides the functionality to stream logs for a Workload from all the pods that are involved in the deplyoment process to the running application.
 ```execute-2
 tanzu apps workload tail product-catalog-management-api-java --since 1h
 ```

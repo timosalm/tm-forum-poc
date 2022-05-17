@@ -6,7 +6,18 @@ It enables **two main use-cases**:
 - Helping teams manage and maintain the software they own.
 - Makes all the software in our organisation, and who owns it, discoverable.
 
-Let's have a look hwo that looks like for our use-case:
+Let's have a look how that looks like for our use-case. 
+
+We first have to import the Organization Catalog definition. Copy the following output ...
+```execute
+echo "${APP_GIT_REPO_HTTP_URL%.*}/blob/${GIT_BRANCH}/catalog/catalog-info.yaml"
+```
+... and paste it into the Catalog import dialog.
+```dashboard:open-url
+url: https://tap-gui.emea.end2end.link/catalog-import
+```
+
+After the import we should be able to have a look at the different entities of the Catalog.
 ```dashboard:open-url
 url: https://tap-gui.{{ ENV_TAP_INGRESS }}/catalog/default/system/tmf-apis-system/diagram
 ```

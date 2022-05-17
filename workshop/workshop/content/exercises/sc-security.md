@@ -25,11 +25,9 @@ clear: true
 Both scanning stepts automatically store the resulting source code and image vulnerability reports to a database which allows us to query for image, source code, package, and vulnerability relationships via an API and the tanzu CLI's insight plugin. The so called **Metadata Store** accepts CycloneDX input and outputs in both human-readable and machine-readable formats, including JSON, text, and CycloneDX.
 
 ```terminal:execute
-command: tanzu insight source vulnerabilities --commit $(get_commit)
-clear: true
-```
-```terminal:execute
-command: tanzu insight image vulnerabilities --digest $(get_image_digest)
+command: |
+  IMAGE_DIGEST=$(kubectl get kservice product-catalog-management-api-java -o jsonpath='{.spec.template.spec.containers[0].image}' | awk -F @ '{ print $2 }')
+  tanzu insight image vulnerabilities --digest $IMAGE_DIGEST
 clear: true
 ```
 VMware is also working on making this information available via a "security analyst" dashboard in the UI.
@@ -44,3 +42,13 @@ TAP also provides optional container signing capabilites via an admission WebHoo
 
 This component uses **cosign** as its backend for signature verification and is compatible only with cosign signatures. 
 
+
+
+cat << EOF >> ~/.bashrc
+get_image_digest() {
+  echo $(kubectl get kservice product-catalog-management-api-java -o jsonpath='{.spec.template.spec.containers[0].image}' | awk -F @ '{ print $2 }')
+}
+get_commit() {
+  echo $(kubectl get workload product-catalog-management-api-java -o jsonpath='{.status.resources[?(@.name=="source-provider")].outputs[?(@.name=="revision")].preview}')
+}
+EOF

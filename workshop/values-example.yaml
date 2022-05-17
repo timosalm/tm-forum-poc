@@ -20,6 +20,4 @@ app_git:
     -----BEGIN OPENSSH PRIVATE KEY-----
     -----END OPENSSH PRIVATE KEY-----
 mongodb:
-  uri: mongodb+srv://user:pw@....mongodb.net?retryWrites=true&w=majority
-  database: my-db
-
+  uri: mongodb+srv://user:pw@....mongodb.net/db-name?retryWrites=true&w=majority

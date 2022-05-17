@@ -1,6 +1,6 @@
 **Persona: Operators**
 
-TAP uses **Supply Chain Choreographer** which is based on the open source **Cartographer** to allow App Operators create pre-approved paths to production by integrating Kubernetes resources with the elements of our existing toolchains.
+TAP uses **Supply Chain Choreographer** which is based on the open source **Cartographer** to **allow App Operators create pre-approved paths to production** by integrating Kubernetes resources with the elements of our existing toolchains.
 
 ```dashboard:open-url
 url: https://cartographer.sh

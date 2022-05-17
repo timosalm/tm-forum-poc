@@ -41,14 +41,3 @@ TAP also provides optional container signing capabilites via an admission WebHoo
 - It intercepts all resources that create Pods as part of their lifecycle.
 
 This component uses **cosign** as its backend for signature verification and is compatible only with cosign signatures. 
-
-
-
-cat << EOF >> ~/.bashrc
-get_image_digest() {
-  echo $(kubectl get kservice product-catalog-management-api-java -o jsonpath='{.spec.template.spec.containers[0].image}' | awk -F @ '{ print $2 }')
-}
-get_commit() {
-  echo $(kubectl get workload product-catalog-management-api-java -o jsonpath='{.status.resources[?(@.name=="source-provider")].outputs[?(@.name=="revision")].preview}')
-}
-EOF

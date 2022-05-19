@@ -48,6 +48,8 @@ VMware is currently working on the following additional runtimes:
 
 ##### Convention Service
 
+**Note: The supply chain run has to be completed for the following commands**
+
 Convention Service *provides a means for people in operational roles to express their hard-won **knowledge and opinions about how applications should run on Kubernetes** as a convention. 
 
 You can **define conventions** to target workloads by **using properties of their OCI metadata**.

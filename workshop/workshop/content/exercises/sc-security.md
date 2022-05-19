@@ -9,7 +9,10 @@ command: kubectl eksporter scanpolicy
 clear: true
 ```
 
+**Note: "Source Scanner" and "Image Scanner" supply chain steps have to be completed for the following commands**
+
 ###### Viewing scan status
+
 The functionality to see the scan results in the Supply Chain view will be probably available in TAP 1.2.
 In the meantime it's possible to directly view the results via kubectl and the custom resources.
 ```terminal:execute

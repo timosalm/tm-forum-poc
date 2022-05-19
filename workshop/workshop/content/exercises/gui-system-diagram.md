@@ -8,6 +8,8 @@ It enables **two main use-cases**:
 
 Let's have a look how that looks like for our use-case. 
 
+**Note: The supply chain run has to be completed and the application running for the following commands**
+
 We first have to import the Organization Catalog definition. Copy the following output ...
 ```execute
 echo "${APP_GIT_REPO_HTTP_URL%.*}/blob/${GIT_BRANCH}/catalog/catalog-info.yaml"

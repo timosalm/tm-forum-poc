@@ -1,3 +1,5 @@
+#@ load("@ytt:data", "data")
+---
 apiVersion: carto.run/v1alpha1
 kind: ClusterSupplyChain
 metadata:
@@ -28,8 +30,8 @@ spec:
     params:
     - name: registry
       value:
-        repository: tap-wkld
-        server: harbor.emea.end2end.link
+        repository: #@ data.values.supply_chain.repository
+        server: #@ data.values.supply_chain.server
     templateRef:
       kind: ClusterTemplate
       name: deliverable-template
@@ -46,7 +48,7 @@ spec:
       resource: source-tester
     templateRef:
       kind: ClusterSourceTemplate
-      name: api-conformance-template
+      name: source-api-conformance-template
   - name: source-scanner
     sources:
     - name: source
@@ -62,8 +64,8 @@ spec:
       value: default
     - name: registry
       value:
-        repository: tap-wkld
-        server: harbor.emea.end2end.link
+        repository: #@ data.values.supply_chain.repository
+        server: #@ data.values.supply_chain.server
     sources:
     - name: source
       resource: source-scanner
@@ -103,8 +105,8 @@ spec:
       value: default
     - name: registry
       value:
-        repository: tap-wkld
-        server: harbor.emea.end2end.link
+        repository: #@ data.values.supply_chain.repository
+        server: #@ data.values.supply_chain.server
     templateRef:
       kind: ClusterTemplate
       name: config-writer-template

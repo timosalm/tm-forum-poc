@@ -1,0 +1,6 @@
+#@data/values
+---
+supply_chain:
+  repository: tap-workld
+  server: harbor.example.com
+

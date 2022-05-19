@@ -5,6 +5,7 @@ A [Learning Center for VMware Tanzu](https://docs.vmware.com/en/Tanzu-Applicatio
 ## Prerequisites
 
 - A TAP 1.1 environment with testing-scanning installed
+- Ingress for metadata-store configured
 - All the other deliverables of the TM Forum PoC installed 
 
 ## Workshop installation
@@ -24,6 +25,17 @@ cp values-example.yaml values.yaml
 Run the installation script.
 ```
 ./install.sh
+```
+
+## Supply Chain installation
+Copy values-example.yaml to values.yaml and set configuration values
+```
+cp supply-chain/values-example.yaml supply-chain/values.yaml
+```
+
+Run the installation script.
+```
+cd supply-chain && ./install.sh && cd supply-chain
 ```
 
 ## Debug

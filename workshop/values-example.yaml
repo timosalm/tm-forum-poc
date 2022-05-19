@@ -21,7 +21,4 @@ app_git:
     -----END OPENSSH PRIVATE KEY-----
 mongodb:
   uri: mongodb+srv://user:pw@....mongodb.net/db-name?retryWrites=true&w=majority
-supply_chain:
-  repository: tap-workld
-  server: harbor.example.com
 

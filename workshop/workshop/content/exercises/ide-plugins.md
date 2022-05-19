@@ -75,6 +75,18 @@ command: tanzu.liveUpdateStop
 ```
 
 To start **debugging** on the cluster:
-1. Add a breakpoint in our code.
-2. Right-click the workload.yaml file in our project.
+1. Add a breakpoint in our code to the selected file
+
+```editor:select-matching-text
+file: ~/tmf-product-catalog-management-api-java/src/main/java/com/vodafone/CatalogApi.java
+text: "a315c1d2-c726-4786-94a0-f267d60d91f5"
+before: 0
+after: 0
+```
+2. Right-click the config/workload.yaml file in our project.
 3. Select Tanzu: Java Debug Start in the right-click menu.
+4. Open the application in the browser and execute a request for the "list catalogs" API.
+```dashboard:open-url
+url: https://product-catalog-management-api-java-{{ session_namespace }}.cnr.{{ ENV_TAP_INGRESS }}
+```
+5. Jump back to your workshop to use the debug functionality.

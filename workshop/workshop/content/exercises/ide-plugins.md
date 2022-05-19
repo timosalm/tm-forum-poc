@@ -57,8 +57,6 @@ This code change will automatically trigger a patch to the running container.
 ```editor:select-matching-text
 file: ~/tmf-product-catalog-management-api-java/src/main/java/org/openapitools/OpenAPI2SpringBoot.java
 text: "TMF Product Catalog Management API"
-before: 0
-after: 0
 ```
 
 ```editor:replace-text-selection

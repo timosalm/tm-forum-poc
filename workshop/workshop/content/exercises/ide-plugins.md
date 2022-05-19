@@ -27,7 +27,9 @@ In our project the first two are already included and configured. To show the co
 file: ~/tmf-product-catalog-management-api-java/Tiltfile
 text: ""
 ```
-**By entering** `tanzu tiltfile` in the created file the Code snippets functionality will be triggered and we can replace the placeholders with our configuration.
+
+
+**Enter** `tanzu tiltfile` **in the created file with your keybaord** to triggered the Code snippets functionality. Then we can replace the placeholders with our configuration.
 ```terminal:execute
 command: sed -i 's/path-to-workload-yaml/config\/workload.yaml/' ~/tmf-product-catalog-management-api-java/Tiltfile
 clear: true

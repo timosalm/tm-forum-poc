@@ -53,7 +53,20 @@ command: tanzu.liveUpdateStart
 
 The Tiltfile script is going to deploy our application into our development environment, and it will take about 2.5 minutes to run to completion the first time. But don't worry! It is setting us up to run iterative deployments that will be much, much faster.
 
-This code change will automatically trigger a patch to the running container. In under 10 seconds, we'll see the application restart in the terminal window. Go to the browser tab where our application is running, and refresh it. We'll see the code changes applied.
+This code change will automatically trigger a patch to the running container. 
+```editor:select-matching-text
+file: ~/tmf-product-catalog-management-api-java/src/main/java/org/openapitools/OpenAPI2SpringBoot.java
+text: "TMF Product Catalog Management API"
+before: 0
+after: 0
+```
+
+```editor:replace-text-selection
+file: ~/tmf-product-catalog-management-api-java/src/main/java/org/openapitools/OpenAPI2SpringBoot.java
+text: "TMF Product Catalog Management API of the UK market"
+```
+
+In under 10 seconds, we'll see the application restart in the terminal window. Go to the browser tab where our application is running, and refresh it. We'll see the code changes applied.
 ```dashboard:open-url
 url: https://product-catalog-management-api-java-{{ session_namespace }}.cnr.{{ ENV_TAP_INGRESS }}
 ```

@@ -31,6 +31,8 @@ spec:
     env: 
     - name: TAP_INGRESS
       value: #@ data.values.tap.ingress_domain
+    - name: ENV_TAP_CNRS_SUBDOMAIN
+      value: #@ data.values.tap.cnrs_subdomain
     - name: CONTAINER_REGISTRY_HOSTNAME
       value: #@ data.values.container_registry.hostname
     - name: CONTAINER_REGISTRY_USERNAME

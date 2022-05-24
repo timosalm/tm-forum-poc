@@ -25,7 +25,7 @@ clear: true
 ```terminal:execute
 command: |
   export GIT_BRANCH={{ session_namespace }}-$(cat /proc/sys/kernel/random/uuid)
-  tanzu accelerator generate tmf-product-catalog-management-api-java --options '{"artifactId":"product-catalog-management-api-java","database":"mongo","gitUrl":"{{ ENV_APP_GIT_REPO_HTTP_URL }}","gitBranch":"'"$GIT_BRANCH"'","namespace":"{{ session_namespace }}","apiSpecLocation":"remote","ingressDomain":"{{ ENV_TAP_INGRESS }}"}' --server-url http://accelerator.{{ ENV_TAP_INGRESS }}
+  tanzu accelerator generate tmf-product-catalog-management-api-java --options '{"artifactId":"product-catalog-management-api-java","database":"mongo","gitUrl":"{{ ENV_APP_GIT_REPO_HTTP_URL }}","gitBranch":"'"$GIT_BRANCH"'","namespace":"{{ session_namespace }}","apiSpecLocation":"remote","ingressDomain":"{{ ENV_TAP_INGRESS }}","cnrSubdomain":{{ ENV_TAP_CNRS_SUBDOMAIN }}}' --server-url http://accelerator.{{ ENV_TAP_INGRESS }}
 clear: true
 ```
 

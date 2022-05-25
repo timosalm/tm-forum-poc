@@ -1,8 +1,8 @@
 #@data/values
 ---
 tap:
-  ingress_domain: example.com
-  cnrs_subdomain: cnrs.
+  ingress_domain: tap.example.com
+  cnrs_subdomain: cnrs.tap.example.com
 container_registry:
   hostname: harbor.example.com
   username: admin

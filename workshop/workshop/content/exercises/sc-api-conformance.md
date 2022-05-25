@@ -16,6 +16,6 @@ If the API of provided source code is not conform with the TMF620 spec, the step
 
 See the results of the conformance test with the following command if the `tanzu apps workload tail` comand output was too fast.
 ```terminal:execute
-command:  kubectl logs -l carto.run/cluster-template-name=source-api-conformance-template -c step-api-conformance-test
+command: kubectl logs -l carto.run/resource-name=api-conformance -c step-api-conformance-test
 clear: true
 ```

@@ -19,7 +19,7 @@ EOF
 git config --global user.email "learningcenter-ws@vmware.com"
 git config --global user.name "Learning Center Workshop"
 
-git clone https://github.com/tsalm-pivotal/tm-forum-poc.git
+git clone -b vf https://github.com/tsalm-pivotal/tm-forum-poc.git
 
 export METADATA_STORE_ACCESS_TOKEN=$(kubectl get secrets -n metadata-store -o jsonpath="{.items[?(@.metadata.annotations['kubernetes\.io/service-account\.name']=='metadata-store-read-write-client')].data.token}" | base64 -d)
 tanzu insight config set-target  https://metadata-store.${TAP_INGRESS} --access-token=$METADATA_STORE_ACCESS_TOKEN

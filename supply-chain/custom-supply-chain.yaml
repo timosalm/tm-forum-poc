@@ -50,6 +50,11 @@ spec:
       kind: ClusterSourceTemplate
       name: source-api-conformance-template
   - name: source-scanner
+    params:
+    - default: scan-policy
+      name: scanning_source_policy
+    - default: blob-source-scan-template
+      name: scanning_source_template
     sources:
     - name: source
       resource: api-conformance
@@ -76,6 +81,11 @@ spec:
     - name: image
       resource: image-builder
     name: image-scanner
+    params:
+    - default: scan-policy
+      name: scanning_image_policy
+    - default: private-image-scan-template
+      name: scanning_image_template
     templateRef:
       kind: ClusterImageTemplate
       name: image-scanner-template

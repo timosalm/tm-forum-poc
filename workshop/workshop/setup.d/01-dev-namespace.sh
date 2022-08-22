@@ -66,3 +66,5 @@ spec:
       msg = sprintf("CVE %s %s %s", [comp.name, vuln.id, ratings])
     }
 EOF
+
+kubectl annotate namespace ${SESSION_NAMESPACE} secretgen.carvel.dev/excluded-from-wildcard-matching-
